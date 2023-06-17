@@ -13,8 +13,9 @@ public class EmployeeMapperImpl implements EmployeeMapper {
 		return new EmployeeRecord(
 				employee.getId(),
 				employee.getFirstName(),
+				employee.getLastName(),
 				employee.getEmail(), 
-				employee.getDob(),
+				employee.getDateOfBirth(),
 				employee.getGender());
 	}
 
@@ -23,8 +24,9 @@ public class EmployeeMapperImpl implements EmployeeMapper {
 		return new Employee(
 				employeeRecord.id(),
 				employeeRecord.firstName(),
+				employeeRecord.lastName(),
 				employeeRecord.email(), 
-				employeeRecord.dob(),
+				employeeRecord.dateOfBirth(),
 				employeeRecord.gender());
 	}
 }
