@@ -16,18 +16,20 @@ public class Employee {
 	private Integer id;
 
 	private String firstName;
+	private String lastName;
 	private String email;
-	private String dob;
+	private String dateOfBirth;
 	private String gender;
 
 	public Employee() {
 	}
 
-	public Employee(Integer id, String firstName, String email, String dob, String gender) {
+	public Employee(Integer id, String firstName, String lastName, String email, String dateOfBirth, String gender) {
 		this.id = id;
 		this.firstName = firstName;
+		this.lastName = lastName;
 		this.email = email;
-		this.dob = dob;
+		this.dateOfBirth = dateOfBirth;
 		this.gender = gender;
 	}
 
@@ -43,6 +45,14 @@ public class Employee {
 		this.firstName = firstName;
 	}
 
+	public String getLastName() {
+		return this.lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
 	public String getEmail() {
 		return this.email;
 	}
@@ -51,12 +61,12 @@ public class Employee {
 		this.email = email;
 	}
 
-	public String getDob() {
-		return this.dob;
+	public String getDateOfBirth() {
+		return this.dateOfBirth;
 	}
 
-	public void setDob(String dob) {
-		this.dob = dob;
+	public void setDateOfBirth(String dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
 	}
 
 	public String getGender() {
