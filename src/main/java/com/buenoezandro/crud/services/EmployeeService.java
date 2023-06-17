@@ -2,6 +2,7 @@ package com.buenoezandro.crud.services;
 
 import java.util.List;
 
+import com.buenoezandro.crud.dtos.EmployeeRecord;
 import com.buenoezandro.crud.entities.Employee;
 
 public interface EmployeeService {
@@ -9,7 +10,7 @@ public interface EmployeeService {
 
 	Employee getEmployeeById(Integer id);
 
-	boolean saveOrUpdateEmployee(Employee employee);
+	boolean saveOrUpdateEmployee(EmployeeRecord employeeRecord);
 
 	boolean deleteEmployee(Integer id);
 }

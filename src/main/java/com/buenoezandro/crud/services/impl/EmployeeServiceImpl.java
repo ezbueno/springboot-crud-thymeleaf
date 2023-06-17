@@ -5,16 +5,20 @@ import java.util.Objects;
 
 import org.springframework.stereotype.Service;
 
+import com.buenoezandro.crud.dtos.EmployeeRecord;
 import com.buenoezandro.crud.entities.Employee;
+import com.buenoezandro.crud.mappers.EmployeeMapper;
 import com.buenoezandro.crud.repositories.EmployeeRepository;
 import com.buenoezandro.crud.services.EmployeeService;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
 	private final EmployeeRepository employeeRepository;
+	private final EmployeeMapper employeeMapper;
 
-	public EmployeeServiceImpl(EmployeeRepository employeeRepository) {
+	public EmployeeServiceImpl(EmployeeRepository employeeRepository, EmployeeMapper employeeMapper) {
 		this.employeeRepository = employeeRepository;
+		this.employeeMapper = employeeMapper;
 	}
 
 	@Override
@@ -28,8 +32,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
-	public boolean saveOrUpdateEmployee(Employee employee) {
-		Employee emp = this.employeeRepository.save(employee);
+	public boolean saveOrUpdateEmployee(EmployeeRecord employeeRecord) {
+		Employee emp = this.employeeRepository.save(this.employeeMapper.fromDTOToEntity(employeeRecord));
 		return Objects.nonNull(this.employeeRepository.findById(emp.getId()));
 	}
 
